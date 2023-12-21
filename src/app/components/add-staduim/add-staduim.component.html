@@ -1,0 +1,38 @@
+<app-banner  [a]="title"></app-banner>
+
+<div class="site-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6">
+          <form [formGroup]="addStadiumForm">
+            <div class="form-group">
+                <input  type="text" FormControlName="name" class="form-control" placeholder=" studium Name">
+              </div>
+              <div *ngIf="addStaduimForm.controls['name'].invalid && 
+              (addStadiumForm.controls['name'].touched || addStadiumForm.controls['name'].dirty)">
+             </div>
+             <div *ngIf="addStadiumForm.controls['name'].errors.required">
+                name is required
+               </div>
+               <div *ngIf="addStadiumForm.controls['name'].errors.minlength">
+                name should have at least 3 carac
+               </div>
+              <div class="form-group">
+                <input  type="text"FormControlName="city" class="form-control" placeholder="city">
+              </div>
+              <div class="form-group">
+                <input  type="number" FormControlName="capacity" class="form-control" placeholder="capacity">
+              </div>
+              <div class="form-group">
+                <input type="submit" click()="addStadium" class="btn btn-primary py-3 px-5" value="Add Stadium">
+              </div>
+            </form>  
+            </div>
+           
+      
+        </div>
+        <div class="col-lg-3"></div>
+
+      </div>
+    </div>

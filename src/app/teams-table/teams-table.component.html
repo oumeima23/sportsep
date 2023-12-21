@@ -1,0 +1,52 @@
+
+<div class="site-section">
+  <div class="container">
+    <div class="row">        
+      <div class="col-lg-3"></div>
+      <div class="col-lg-6">
+        <form #searchForm="ngForm" (ngSubmit)="search()" >
+          <div class="form-group">
+            <input type="text" [(ngModel)]="obj.staduim" name="staduim" class="form-control" placeholder="Insert staduim name">
+          </div>
+         
+          <div class="form-group">
+            <input type="submit" class="btn btn-primary py-3 px-5" value="search">
+          </div>
+          <div class="col-lg-3"></div>
+
+        </form>  
+      </div>
+      
+    </div>
+  </div>
+  <div class="widget-next-match">
+    <table class="table custom-table">
+      <thead> 
+        <tr>
+          <th>id</th>
+          <th>name</th>
+          <th>foundation</th>
+          <th>owner</th>
+          <th *ngIf="isDisplayed">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let team of teams">
+          <td>{{team._id}}</td>
+          <td><strong class="text-white">{{team.name}}</strong></td>
+          <td>{{team.foundation}}</td>  
+          <td>{{team.Owner}}</td>
+          <td></td>
+          <td *ngIf="isDisplayed"> 
+            <button class="btn btn-warning " (click)="goToDisplayTeam(team._id)">Display</button>  
+            <button class="btn btn-success" (click)="goToEditTeam(team._id)">Edit</button>
+            <button class="btn btn-danger"(click)= "deleteTeamById(team._id)">Delete </button>
+          </td>
+        </tr>  
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+
